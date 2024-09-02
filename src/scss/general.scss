@@ -1,0 +1,31 @@
+body {
+  @apply font-nunito text-16 leading-15;
+}
+
+a {
+  @apply transition-colors hover:text-cyan;
+}
+
+input {
+  @apply bg-[unset] border-none outline-none;
+}
+
+button {
+  @apply outline-none;
+}
+
+::-webkit-scrollbar {
+  @apply w-8 h-8;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-grey rounded-small;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-grey rounded-small;
+}
+
+.container {
+  @apply max-w-1290 !important;
+}

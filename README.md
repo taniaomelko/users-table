@@ -1,52 +1,23 @@
+# Users Table
+
 Demo: https://taniaomelko.github.io/users-table
 
-# React + TypeScript + Vite
+## Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic users table was built using React, Redux, and TypeScript. The table displays a list of users with columns for name, username, email, and phone number. Key features include searching and filtering users by these columns, responsive design, and efficient data fetching.
 
-Currently, two official plugins are available:
+## Key Components and Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Interface:** Designed to be visually appealing and responsive, the table maintains a user-friendly interface across different devices and screen resolutions.
 
-## Expanding the ESLint configuration
+- **Search and Filtering:** Each column has an individual search input, allowing users to filter the list by name, username, email, or phone number. The table updates dynamically based on the search criteria.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **State Management:** Redux Toolkit is used for managing the state of users and filters. The data is fetched from an API, stored in the Redux store, and filtered based on user input.
 
-- Configure the top-level `parserOptions` property like this:
+- **Error Handling:** User-friendly error messages are shown if the data fails to load or if the API request encounters issues.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Data Fetching:** Data is fetched using React Query, with caching mechanisms to avoid redundant API calls.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Styling:** The project uses Tailwind CSS for styling, ensuring a consistent and modern look across the table and its components.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **TypeScript:** The project is developed with TypeScript to enhance code quality and provide type safety throughout the application.

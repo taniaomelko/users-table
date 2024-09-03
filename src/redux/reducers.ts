@@ -14,8 +14,18 @@ type UsersState = {
 }
 
 type tUsersAction = 
-  { type: 'USERS/FETCH'; payload: tUser[] } | 
-  { type: 'USERS/FILTER'; payload: { field: string; value: string } };
+  { type: typeof USERS_FETCH; payload: tUser[] } | 
+  { type: typeof USERS_FILTER; payload: { field: string; value: string } };
+
+function normalizeUsername(username: string): string {
+  const normalized = username.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return normalized;
+}
+
+const normalizePhone = (phone: string): string => {
+  const normalized = phone.replace(/[^\d]/g, '');
+  return normalized;
+};
 
 export const usersReducer = (
   state: UsersState = initialState,
@@ -42,7 +52,18 @@ export const usersReducer = (
 
       const filteredUsers = state.allUsers.filter((user) => {
         return Object.entries(newFilters).every(([key, filterValue]) => {
-          const fieldValue = user[key as keyof tUser]?.toString().toLowerCase() ?? '';
+          let fieldValue = user[key as keyof tUser]?.toString().toLowerCase() ?? '';
+
+          if (key === 'username') {
+            fieldValue = normalizeUsername(fieldValue);
+            filterValue = normalizeUsername(filterValue);
+          }
+
+          if (key === 'phone') {
+            fieldValue = normalizePhone(fieldValue);
+            filterValue = normalizePhone(filterValue);
+          }
+
           return fieldValue.includes(filterValue);
         });
       });

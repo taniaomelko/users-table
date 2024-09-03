@@ -25,6 +25,7 @@ export const Search: React.FC<SearchProps> = ({ field }) => {
       <input
         className="block w-full min-w-150 pr-20 border-solid border-b border-b-grey text-14 font-normal transition-colors placeholder:text-grey focus:border-b-white"
         type="text"
+        value={filters[field] || ''}
         onChange={handleChange}
         placeholder={`Search by ${field}`}
       />

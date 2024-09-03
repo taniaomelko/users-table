@@ -1,5 +1,6 @@
 body {
-  @apply font-nunito text-16 leading-15;
+  @apply font-nunito text-16 leading-15 text-dark-blue;
+  @apply dark:bg-dark-blue dark:text-white;
 }
 
 a {
@@ -7,11 +8,11 @@ a {
 }
 
 input {
-  @apply bg-[unset] border-none outline-none;
+  @apply bg-[unset] border-none outline-none focus:outline-none;
 }
 
 button {
-  @apply outline-none;
+  @apply outline-none focus:outline-none;
 }
 
 ::-webkit-scrollbar {
@@ -20,10 +21,12 @@ button {
 
 ::-webkit-scrollbar-thumb {
   @apply bg-grey rounded-small;
+  @apply dark:bg-grey;
 }
 
 ::-webkit-scrollbar-track {
   @apply bg-light-grey rounded-small;
+  @apply dark:bg-dark-grey;
 }
 
 .container {

@@ -15,8 +15,10 @@ export default {
       inherit: 'inherit',
       black: '#000',
       white: '#fff',
+      'dark-blue': '#1E1E2C',
       cyan: '#0266d1',
-      grey: '#b1b1b1',
+      'dark-grey': '#4d4d4d',
+      grey: '#c1c1c1',
       'light-grey': '#e8e8e8',
     },
     extend: {
@@ -62,6 +64,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
 
